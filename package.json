@@ -1,0 +1,33 @@
+{
+  "name": "pdq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KennyStephens/node-passport-login.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KennyStephens/node-passport-login/issues"
+  },
+  "homepage": "https://github.com/KennyStephens/node-passport-login#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.6",
+    "node-fetch": "^2.3.0",
+    "node-html-parser": "^1.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
