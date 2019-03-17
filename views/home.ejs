@@ -3,7 +3,6 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body text-center">
         <img id="image" class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px;" src="<%=employee.image %>" />
-
         <p><strong>Name: </strong>
           <span id="name">
             <%= employee.name %></span>
@@ -12,8 +11,6 @@
           <span id="beer">
             <%= employee.drink %></span>
         </p>
-        <p class="test"></p>
-
         <a class="btn btn-info" href="/">Get Employee</a>
       </div>
     </div>
@@ -25,26 +22,24 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-
-    const image = document.getElementById('image');
+    // Grab current DOM elements that need to be updated
+    const image = document.getElementById('image').outerHTML;
     const name = document.getElementById('name').textContent;
     const beer = document.getElementById('beer').textContent;
-
-    console.log(image, name, beer);
-
+    // Send data to server
     const socket = io();
     socket.emit('update', {
       image,
       name,
       beer
     });
+    // Receive Data from server and update page
     socket.on('container', data => {
-      console.log(data);
+      // console.log(data);
+      const currentImage = document.getElementById('image').setAttribute('src', data.image.split('"')[7]);
+      document.querySelector('.test').innerHTML = currentImage;
       document.getElementById('name').textContent = data.name;
       document.getElementById('beer').textContent = data.beer;
     })
   });
 </script>
-</div>
-</div>
-</div>
