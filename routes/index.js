@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
       }).then((string) => {
         const imageURL = HTMLParser.parse(string);
         const imageArray = Array.from(imageURL.querySelectorAll('img'));
-        
+
         imageArray.forEach(src => {
           if (src.rawAttrs.toString().includes(response.name) && src.rawAttrs.toString().includes('company')) {
             const imageSrcParsed = src.rawAttrs.split('/n')[0];        
@@ -25,13 +25,8 @@ router.get("/", (req, res) => {
             })
           }
         });
-
       })
-      .catch(err => console.log(err)); // End of image src
     })
-
-
-
     .catch(err => console.log(err))
 });
 
