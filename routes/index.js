@@ -17,9 +17,9 @@ router.get("/", (req, res) => {
 
         imageArray.forEach(src => {
           if (src.rawAttrs.toString().includes(response.name) && src.rawAttrs.toString().includes('company')) {
-            const imageSrcParsed = src.rawAttrs.split('/n')[0];        
+            const imageSrcParsed = src.rawAttrs.split('/n')[0];
             response.image = imageSrcParsed.split('"')[1];
-            
+
             res.render("home", {
               employee: response
             })
@@ -27,9 +27,12 @@ router.get("/", (req, res) => {
         });
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      if(err.type === 'invalid-json') {
+        res.redirect('/');
+      }
+    });
 });
 
 
 module.exports = router;
-

@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use("/", require("./routes/index"));
 
+// Socket IO Connection
 io.on('connection', socket => {
   console.log('a user connected');
   socket.on('update', (data) => {
-    console.log(data);
     io.sockets.emit('container', data);
   })
 });

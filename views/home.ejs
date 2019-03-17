@@ -35,9 +35,7 @@
     });
     // Receive Data from server and update page
     socket.on('container', data => {
-      // console.log(data);
-      const currentImage = document.getElementById('image').setAttribute('src', data.image.split('"')[7]);
-      document.querySelector('.test').innerHTML = currentImage;
+      document.getElementById('image').setAttribute('src', data.image.split('"')[7]);
       document.getElementById('name').textContent = data.name;
       document.getElementById('beer').textContent = data.beer;
     })
