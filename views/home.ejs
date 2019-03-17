@@ -5,10 +5,10 @@
         <img id="image" class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px;" src="<%=employee.image %>" />
 
         <p><strong>Name: </strong>
-          <span id="name"><%= employee.name %></span>
+          <span><%= employee.name %></span>
         </p>
         <p><strong>Favorite Beer: </strong>
-          <span id="beer"><%= employee.drink %></span>
+          <span><%= employee.drink %></span>
         </p>
         <p class="test"></p>
 
@@ -26,18 +26,15 @@
     const image = document.getElementById('image');
     const name = document.getElementById('name');
     const beer = document.getElementById('beer');
-    // console.log(image, name, beer);
     
-    // console.log(container);
+    console.log(container);
     const socket = io();
     socket.emit('update', {
-      image,
-      name,
-      beer
+      container
     });
     socket.on('container', data => {
       console.log(data);
-      document.getElementById('image').innerHTML = data.image;
+      document.querySelector('#container').innerHTML = data;
     })
   }
 </script>
