@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KennyStephens/node-passport-login.git"
+    "url": "git+https://github.com/KennyStephens/pdq-project.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KennyStephens/node-passport-login/issues"
+    "url": "https://github.com/KennyStephens/pdq-project/issues"
   },
-  "homepage": "https://github.com/KennyStephens/node-passport-login#readme",
+  "homepage": "https://github.com/KennyStephens/pdq-project#readme",
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
