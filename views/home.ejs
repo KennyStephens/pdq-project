@@ -1,12 +1,12 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body text-center">
-    <img src="<%=employee.image %>" />
+    <img class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px;" src="<%=employee.image %>" />
     
-    <p><%= employee.name %></p>
-    <p><%= employee.drink %></p>
+    <p>Name: <%= employee.name %></p>
+    <p>Favorite Beer: <%= employee.drink %></p>
 
-      <a class="btn btn-info" href="/">API CALL</a>
+      <a class="btn btn-info" href="/">Get Employee</a>
     </div>
   </div>
 </div>
