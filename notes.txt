@@ -1,3 +1,0 @@
-have link redired to '/'
-
-then onload run websocket stuff
