@@ -1,12 +1,46 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body text-center">
-    <img class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px;" src="<%=employee.image %>" />
-    
-    <p><strong>Name: </strong><%= employee.name %></p>
-    <p><strong>Favorite Beer: </strong><%= employee.drink %></p>
+<div id="container">
+  <div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body text-center">
+        <img id="image" class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px;" src="<%=employee.image %>" />
 
-      <a class="btn btn-info" href="/">Get Employee</a>
+        <p><strong>Name: </strong>
+          <span id="name"><%= employee.name %></span>
+        </p>
+        <p><strong>Favorite Beer: </strong>
+          <span id="beer"><%= employee.drink %></span>
+        </p>
+        <p class="test"></p>
+
+        <a class="btn btn-info" onclick="updateEmployee()">Get Employee</a>
+      </div>
     </div>
   </div>
+</div>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  function updateEmployee() {
+    const image = document.getElementById('image');
+    const name = document.getElementById('name');
+    const beer = document.getElementById('beer');
+    // console.log(image, name, beer);
+    
+    // console.log(container);
+    const socket = io();
+    socket.emit('update', {
+      image,
+      name,
+      beer
+    });
+    socket.on('container', data => {
+      console.log(data);
+      document.getElementById('image').innerHTML = data.image;
+    })
+  }
+</script>
+</div>
+</div>
 </div>

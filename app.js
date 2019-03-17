@@ -15,8 +15,12 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use("/", require("./routes/index"));
 
-io.on('connection', function(socket){
+io.on('connection', socket => {
   console.log('a user connected');
+  socket.on('update', (data) => {
+    console.log(data);
+    io.sockets.emit('container', data);
+  })
 });
 
 const PORT = process.env.PORT || 5000;
