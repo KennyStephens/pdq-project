@@ -25,7 +25,8 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.15.6",
     "node-fetch": "^2.3.0",
-    "node-html-parser": "^1.1.12"
+    "node-html-parser": "^1.1.12",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
